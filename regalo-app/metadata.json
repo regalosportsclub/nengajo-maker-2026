@@ -1,0 +1,8 @@
+
+{
+  "name": "Regalo Sports Club - 年賀状メーカー2026",
+  "description": "2026年（午年）の年賀状を写真から自動生成。AIがあなたの写真を特別なイラストに仕上げます。",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

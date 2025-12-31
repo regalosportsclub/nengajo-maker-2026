@@ -1,0 +1,61 @@
+{\rtf1\ansi\ansicpg932\cocoartf2867
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red202\green202\blue202;\red70\green137\blue204;\red24\green24\blue24;
+\red212\green212\blue212;\red54\green192\blue160;\red194\green126\blue101;\red167\green197\blue152;}
+{\*\expandedcolortbl;;\cssrgb\c83137\c83137\c83137;\cssrgb\c33725\c61176\c83922;\cssrgb\c12157\c12157\c12157;
+\cssrgb\c86275\c86275\c86275;\cssrgb\c23922\c78824\c69020;\cssrgb\c80784\c56863\c47059;\cssrgb\c70980\c80784\c65882;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf3 \cb4 \strokec3 import\cf2 \strokec2  \cf5 \strokec5 \{\cf2 \strokec2  \cf6 \cb4 \strokec6 GoogleGenAI\cf2 \cb4 \strokec2  \cf5 \strokec5 \}\cf2 \strokec2  \cf3 \strokec3 from\cf2 \strokec2  \cf7 \strokec7 "@google/genai"\cf5 \strokec5 ;\cf2 \cb1 \strokec2 \
+\
+\cf3 \cb4 \strokec3 export\cf2 \strokec2  \cf3 \strokec3 const\cf2 \strokec2  generateNewYearCard \cf5 \strokec5 =\cf2 \strokec2  \cf3 \strokec3 async\cf2 \strokec2  \cf5 \strokec5 (\cf2 \strokec2 base64Image\cf5 \strokec5 :\cf2 \strokec2  \cf3 \strokec3 string\cf5 \strokec5 ):\cf2 \strokec2  \cf6 \cb4 \strokec6 Promise\cf5 \cb4 \strokec5 <\{\cf2 \strokec2  imageUrl\cf5 \strokec5 :\cf2 \strokec2  \cf3 \strokec3 string\cf2 \strokec2  \cf5 \strokec5 \}>\cf2 \strokec2  \cf5 \strokec5 =>\cf2 \strokec2  \cf5 \strokec5 \{\cf2 \cb1 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf2 \cb4   \cf3 \strokec3 const\cf2 \strokec2  ai \cf5 \strokec5 =\cf2 \strokec2  \cf3 \strokec3 new\cf2 \strokec2  \cf6 \cb4 \strokec6 GoogleGenAI\cf5 \cb4 \strokec5 (\{\cf2 \strokec2  apiKey\cf5 \strokec5 :\cf2 \strokec2  process\cf5 \strokec5 .\cf2 \strokec2 env\cf5 \strokec5 .\cf6 \cb4 \strokec6 API_KEY\cf2 \cb4 \strokec2  \cf5 \strokec5 \});\cf2 \cb1 \strokec2 \
+\cb4   \cb1 \
+\cb4   \cf3 \strokec3 const\cf2 \strokec2  prompt \cf5 \strokec5 =\cf2 \strokec2  \cf7 \strokec7 `Create a traditional Japanese New Year's card (Nengajo) illustration for 2026 (Year of the Horse). Transform the face from the provided photo into a friendly, smiling character riding a majestic white horse. Include motifs like plum blossoms and a rising sun. Stylish text: "Happy New Year 2026" and "Regalo Sports Club". Orientation: Postcard vertical.`\cf5 \strokec5 ;\cf2 \cb1 \strokec2 \
+\
+\cb4   \cf3 \strokec3 try\cf2 \strokec2  \cf5 \strokec5 \{\cf2 \cb1 \strokec2 \
+\cb4     \cf3 \strokec3 const\cf2 \strokec2  response \cf5 \strokec5 =\cf2 \strokec2  \cf3 \strokec3 await\cf2 \strokec2  ai\cf5 \strokec5 .\cf2 \strokec2 models\cf5 \strokec5 .\cf2 \strokec2 generateContent\cf5 \strokec5 (\{\cf2 \cb1 \strokec2 \
+\cb4       model\cf5 \strokec5 :\cf2 \strokec2  \cf7 \strokec7 'gemini-2.5-flash-image'\cf5 \strokec5 ,\cf2 \cb1 \strokec2 \
+\cb4       contents\cf5 \strokec5 :\cf2 \strokec2  \cf5 \strokec5 \{\cf2 \cb1 \strokec2 \
+\cb4         parts\cf5 \strokec5 :\cf2 \strokec2  \cf5 \strokec5 [\cf2 \cb1 \strokec2 \
+\cb4           \cf5 \strokec5 \{\cf2 \cb1 \strokec2 \
+\cb4             inlineData\cf5 \strokec5 :\cf2 \strokec2  \cf5 \strokec5 \{\cf2 \cb1 \strokec2 \
+\cb4               data\cf5 \strokec5 :\cf2 \strokec2  base64Image\cf5 \strokec5 .\cf2 \strokec2 split\cf5 \strokec5 (\cf7 \strokec7 ','\cf5 \strokec5 )[\cf8 \strokec8 1\cf5 \strokec5 ],\cf2 \cb1 \strokec2 \
+\cb4               mimeType\cf5 \strokec5 :\cf2 \strokec2  \cf7 \strokec7 'image/jpeg'\cf5 \strokec5 ,\cf2 \cb1 \strokec2 \
+\cb4             \cf5 \strokec5 \},\cf2 \cb1 \strokec2 \
+\cb4           \cf5 \strokec5 \},\cf2 \cb1 \strokec2 \
+\cb4           \cf5 \strokec5 \{\cf2 \strokec2  text\cf5 \strokec5 :\cf2 \strokec2  prompt \cf5 \strokec5 \},\cf2 \cb1 \strokec2 \
+\cb4         \cf5 \strokec5 ],\cf2 \cb1 \strokec2 \
+\cb4       \cf5 \strokec5 \},\cf2 \cb1 \strokec2 \
+\cb4       config\cf5 \strokec5 :\cf2 \strokec2  \cf5 \strokec5 \{\cf2 \cb1 \strokec2 \
+\cb4         imageConfig\cf5 \strokec5 :\cf2 \strokec2  \cf5 \strokec5 \{\cf2 \cb1 \strokec2 \
+\cb4           aspectRatio\cf5 \strokec5 :\cf2 \strokec2  \cf7 \strokec7 "3:4"\cf5 \strokec5 ,\cf2 \cb1 \strokec2 \
+\cb4         \cf5 \strokec5 \},\cf2 \cb1 \strokec2 \
+\cb4       \cf5 \strokec5 \},\cf2 \cb1 \strokec2 \
+\cb4     \cf5 \strokec5 \});\cf2 \cb1 \strokec2 \
+\
+\cb4     \cf3 \strokec3 let\cf2 \strokec2  imageUrl \cf5 \strokec5 =\cf2 \strokec2  \cf7 \strokec7 ''\cf5 \strokec5 ;\cf2 \cb1 \strokec2 \
+\cb4     \cf3 \strokec3 const\cf2 \strokec2  parts \cf5 \strokec5 =\cf2 \strokec2  response\cf5 \strokec5 .\cf2 \strokec2 candidates\cf5 \strokec5 ?.[\cf8 \strokec8 0\cf5 \strokec5 ]?.\cf2 \strokec2 content\cf5 \strokec5 ?.\cf2 \strokec2 parts \cf5 \strokec5 ||\cf2 \strokec2  \cf5 \strokec5 [];\cf2 \cb1 \strokec2 \
+\cb4     \cf3 \strokec3 for\cf2 \strokec2  \cf5 \strokec5 (\cf3 \strokec3 const\cf2 \strokec2  part \cf3 \strokec3 of\cf2 \strokec2  parts\cf5 \strokec5 )\cf2 \strokec2  \cf5 \strokec5 \{\cf2 \cb1 \strokec2 \
+\cb4       \cf3 \strokec3 if\cf2 \strokec2  \cf5 \strokec5 (\cf2 \strokec2 part\cf5 \strokec5 .\cf2 \strokec2 inlineData\cf5 \strokec5 )\cf2 \strokec2  \cf5 \strokec5 \{\cf2 \cb1 \strokec2 \
+\cb4         imageUrl \cf5 \strokec5 =\cf2 \strokec2  \cf7 \strokec7 `data:image/png;base64,\cf5 \strokec5 $\{\cf2 \strokec2 part\cf5 \strokec5 .\cf2 \strokec2 inlineData\cf5 \strokec5 .\cf2 \strokec2 data\cf5 \strokec5 \}\cf7 \strokec7 `\cf5 \strokec5 ;\cf2 \cb1 \strokec2 \
+\cb4         \cf3 \strokec3 break\cf5 \strokec5 ;\cf2 \cb1 \strokec2 \
+\cb4       \cf5 \strokec5 \}\cf2 \cb1 \strokec2 \
+\cb4     \cf5 \strokec5 \}\cf2 \cb1 \strokec2 \
+\
+\cb4     \cf3 \strokec3 if\cf2 \strokec2  \cf5 \strokec5 (!\cf2 \strokec2 imageUrl\cf5 \strokec5 )\cf2 \strokec2  \cf3 \strokec3 throw\cf2 \strokec2  \cf3 \strokec3 new\cf2 \strokec2  \cf6 \cb4 \strokec6 Error\cf5 \cb4 \strokec5 (\cf7 \strokec7 "\uc0\u30011 \u20687 \u29983 \u25104 \u12395 \u22833 \u25943 \u12375 \u12414 \u12375 \u12383 \u12290 "\cf5 \strokec5 );\cf2 \cb1 \strokec2 \
+\cb4     \cf3 \strokec3 return\cf2 \strokec2  \cf5 \strokec5 \{\cf2 \strokec2  imageUrl \cf5 \strokec5 \};\cf2 \cb1 \strokec2 \
+\cb4   \cf5 \strokec5 \}\cf2 \strokec2  \cf3 \strokec3 catch\cf2 \strokec2  \cf5 \strokec5 (\cf2 \strokec2 error\cf5 \strokec5 )\cf2 \strokec2  \cf5 \strokec5 \{\cf2 \cb1 \strokec2 \
+\cb4     console\cf5 \strokec5 .\cf2 \strokec2 error\cf5 \strokec5 (\cf7 \strokec7 "Gemini Error:"\cf5 \strokec5 ,\cf2 \strokec2  error\cf5 \strokec5 );\cf2 \cb1 \strokec2 \
+\cb4     \cf3 \strokec3 throw\cf2 \strokec2  error\cf5 \strokec5 ;\cf2 \cb1 \strokec2 \
+\cb4   \cf5 \strokec5 \}\cf2 \cb1 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf5 \cb4 \strokec5 \};\cf2 \cb1 \strokec2 \
+\
+}
